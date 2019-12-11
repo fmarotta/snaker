@@ -1,0 +1,21 @@
+Package: snaker
+Type: Package
+Title: Snaker
+Version: 0.1.0
+Authors@R: person("Federico", "Marotta", email = "federico.marotta@edu.unito.it", role = c("aut", "cre"))
+Maintainer: Federico Marotta <federico.marotta@edu.unito.it>
+Description: Parses the arguments to the script received either by Snakemake or
+    through the command line.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    docopt,
+    methods
+Suggests:
+    knitr,
+    qpdf,
+    rmarkdown
+VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
