@@ -4,16 +4,10 @@
 \alias{snaker}
 \title{snaker}
 \usage{
-snaker(doc, args = commandArgs(TRUE), name = NULL, help = TRUE,
-  version = NULL, strict = FALSE, strip_names = !strict,
-  quoted_args = !strict)
+snaker(doc, name = NULL, help = TRUE, version = NULL)
 }
 \arguments{
 \item{doc}{\code{character} vector with command line specification}
-
-\item{args}{\code{character} vector of commandline arguments. 
-If \code{args} is missing 
-\code{commandArgs(trailingOnly=TRUE)} will be used.}
 
 \item{name}{Currently not used}
 
@@ -21,16 +15,6 @@ If \code{args} is missing
 
 \item{version}{\code{character}. If supplied the option "-v" generates
 the given version number and stops.}
-
-\item{strict}{\code{logical} if \code{TRUE} docopt will conform to docopt.py 
-in and output (\code{strip_names=FALSE} and \code{quoted_args=FALSE})}
-
-\item{strip_names}{if \code{TRUE} it will remove dashes and angles from the 
-resulting names and add these to the resulting list. 
-Note that this is different from docopt standard!}
-
-\item{quoted_args}{if \code{TRUE} it will accept quoted arguments. 
-Note that this is different from docopt standard!}
 }
 \value{
 The list of named arguments and parameters.
