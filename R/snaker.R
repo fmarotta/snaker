@@ -59,12 +59,12 @@ snaker <- function(doc, name = NULL, help = TRUE, version = NULL) {
             arguments <- append(arguments, snake_slot)
         }
 
-        args <- c(unlist(commands), unlist(options), unlist(args))
+        snargs <- c(unlist(commands), unlist(options), unlist(arguments))
     } else {
-        args <- commandArgs(TRUE)
+        snargs <- commandArgs(TRUE)
     }
 
-    argv <- docopt::docopt(doc, args = args, name = name, help = help, version = version,
+    argv <- docopt::docopt(doc, args = snargs, name = name, help = help, version = version,
                            strict = FALSE, strip_names = TRUE, quoted_args = TRUE)
 
     argv
