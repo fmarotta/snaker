@@ -27,7 +27,7 @@ snaker <- function(doc, name = NULL, help = TRUE, version = NULL) {
         options_fields <- c("input", "output", "params", "resources")
         args_fields <- c("input", "output")
         options <- list()
-        args <- list()
+        arguments <- list()
 
         # Parse the log
         if (length(snakemake@log) > 1) {
@@ -55,8 +55,8 @@ snaker <- function(doc, name = NULL, help = TRUE, version = NULL) {
             snake_slot <- methods::slot(snakemake, s)
             slot_names <- names(snake_slot)[names(snake_slot) != ""]
             snake_slot[slot_names] <- NULL
-            snake_slot[(length(snake_slot) - length(slot_names) + 1):length(snake_slot)] <- NULL
-            args <- append(args, snake_slot)
+            snake_slot[(length(snake_slot) - length(slot_names) + 1):(length(snake_slot) + 1)] <- NULL
+            arguments <- append(arguments, snake_slot)
         }
 
         args <- c(unlist(commands), unlist(options), unlist(args))
@@ -64,7 +64,7 @@ snaker <- function(doc, name = NULL, help = TRUE, version = NULL) {
         args <- commandArgs(TRUE)
     }
 
-    argv <- docopt::docopt(doc, args = commandArgs(TRUE), name = name, help = help, version = version,
+    argv <- docopt::docopt(doc, args = args, name = name, help = help, version = version,
                            strict = FALSE, strip_names = TRUE, quoted_args = TRUE)
 
     argv
